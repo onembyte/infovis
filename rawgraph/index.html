@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAWGraphs · Infovis</title>
+  <title>RAWGraphs · Visuales</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
@@ -108,20 +108,31 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      grid-template-columns: 1fr;
+      gap: 22px;
     }
     .item {
       background: var(--panel);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius);
       padding: 16px;
-      min-height: 180px;
+      min-height: 200px;
       display: grid;
       gap: 10px;
     }
     .item h2 { margin: 0; font-size: 18px; }
     .item small { color: var(--muted); }
+    .embed {
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .embed img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
     .empty {
       background: rgba(255, 255, 255, 0.03);
       border: 1px dashed rgba(255, 255, 255, 0.12);
@@ -153,21 +164,27 @@
   <div class="frame">
     <header>
       <div class="label"><span class="dot"></span>RAWGraphs</div>
-      <h1>Galería RAWGraphs</h1>
-      <p>Visualizaciones exportadas desde RAWGraphs.</p>
+      <h1>RAWGraphs</h1>
+      <p>Entrega: utilizar RAWGraphs.</p>
     </header>
 
     <div class="toolbar">
-      <a class="link-btn" href="../">↩ Volver al índice</a>
-      <a class="link-btn" href="https://app.rawgraphs.io/" target="_blank" rel="noreferrer">Abrir RAWGraphs</a>
+      <a class="link-btn" href="../">↩ Volver a la página principal</a>
     </div>
 
     <section class="gallery">
       <article class="item">
-        <h2>Visual 01</h2>
+        <h2>Modelos y ventas</h2>
         <small>SVG</small>
-        <div class="embed" style="padding:0; background: rgba(255,255,255,0.02); min-height: 0;">
-          <img src="viz.svg" alt="Visual RAWGraphs" style="width:100%; height:auto; display:block; border-radius:12px; border:1px solid rgba(255,255,255,0.06);" />
+        <div class="embed">
+          <img src="viz.svg" alt="Visual RAWGraphs" />
+        </div>
+      </article>
+      <article class="item">
+        <h2>Ventas por categoría</h2>
+        <small>SVG</small>
+        <div class="embed">
+          <img src="viz%20(1).svg" alt="Visual RAWGraphs 2" />
         </div>
       </article>
     </section>
