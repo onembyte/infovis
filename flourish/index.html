@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flourish · Infovis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c1021;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --accent: #7bd1ff;
+      --text: #f5f7fb;
+      --muted: #c5c8d4;
+      --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Space Grotesk", "Manrope", system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 20% 20%, #1a1f3a 0, transparent 30%),
+                  radial-gradient(circle at 80% 0%, #0d6b59 0, transparent 25%),
+                  linear-gradient(145deg, #0c1021 0%, #0a0d19 50%, #0f192f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 18px 54px;
+    }
+    .frame {
+      width: min(1050px, 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 32px 32px 40px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .frame::before, .frame::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.22;
+      z-index: 0;
+    }
+    .frame::before { background: #7bd1ff; top: -110px; left: -70px; }
+    .frame::after { background: #6ef3c5; bottom: -140px; right: -120px; }
+    header {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--muted);
+      width: fit-content;
+    }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(123, 209, 255, 0.15);
+    }
+    h1 { margin: 0; font-size: clamp(30px, 5vw, 40px); letter-spacing: -0.02em; }
+    p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 700px; }
+    .toolbar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: border-color 160ms ease, transform 160ms ease;
+      font-weight: 600;
+    }
+    .link-btn:hover { transform: translateY(-1px); border-color: rgba(123, 209, 255, 0.35); }
+    .gallery {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .item {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 16px;
+      min-height: 200px;
+      display: grid;
+      gap: 10px;
+    }
+    .item h2 { margin: 0; font-size: 18px; }
+    .item small { color: var(--muted); }
+    .embed {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      min-height: 120px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 10px;
+    }
+    code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 3px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    footer {
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 640px) {
+      .frame { padding: 26px 20px 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header>
+      <div class="label"><span class="dot"></span>Flourish</div>
+      <h1>Embeds Flourish</h1>
+      <p>Visualizaciones interactivas de Flourish.</p>
+    </header>
+
+    <div class="toolbar">
+      <a class="link-btn" href="../">↩ Volver al índice</a>
+      <a class="link-btn" href="https://flourish.studio/projects" target="_blank" rel="noreferrer">Abrir Flourish</a>
+    </div>
+
+    <section class="gallery">
+      <article class="item">
+        <h2>Proyecto 01</h2>
+        <small>Embed interactivo</small>
+        <div class="embed">Embed pendiente.</div>
+      </article>
+
+      <article class="item">
+        <h2>Proyecto 02</h2>
+        <small>Embed interactivo</small>
+        <div class="embed">Embed pendiente.</div>
+      </article>
+    </section>
+
+    <footer></footer>
+  </div>
+</body>
+</html>
