@@ -128,12 +128,17 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.02);
-      min-height: 120px;
+      min-height: 520px;
       display: grid;
       place-items: center;
       color: var(--muted);
       font-size: 14px;
-      padding: 10px;
+      padding: 16px;
+    }
+    .embed iframe,
+    .embed .flourish-embed {
+      width: 100%;
+      min-height: 500px;
     }
     code {
       background: rgba(255, 255, 255, 0.08);
@@ -157,8 +162,8 @@
   <div class="frame">
     <header>
       <div class="label"><span class="dot"></span>Flourish</div>
-      <h1>Embeds Flourish</h1>
-      <p>Visualizaciones interactivas de Flourish.</p>
+      <h1>Los Simpsons</h1>
+      <p>Visualización interactiva en Flourish.</p>
     </header>
 
     <div class="toolbar">
@@ -167,15 +172,14 @@
 
     <section class="gallery">
       <article class="item">
-        <h2>Proyecto 01</h2>
+        <h2>Los Simpsons</h2>
         <small>Embed interactivo</small>
-        <div class="embed">Embed pendiente.</div>
-      </article>
-
-      <article class="item">
-        <h2>Proyecto 02</h2>
-        <small>Embed interactivo</small>
-        <div class="embed">Embed pendiente.</div>
+        <div class="embed">
+          <div class="flourish-embed flourish-network" data-src="visualisation/26503613">
+            <script src="https://public.flourish.studio/resources/embed.js"></script>
+            <noscript><img src="https://public.flourish.studio/visualisation/26503613/thumbnail" width="100%" alt="network visualization"/></noscript>
+          </div>
+        </div>
       </article>
     </section>
 
