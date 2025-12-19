@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tableau · Infovis</title>
+  <title>TP Final · Datos Personales</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
       --bg: #0c1021;
       --panel: rgba(255, 255, 255, 0.08);
       --panel-strong: rgba(255, 255, 255, 0.12);
-      --accent: #f36e9c;
+      --accent: #7bd1ff;
       --text: #f5f7fb;
       --muted: #c5c8d4;
       --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
@@ -33,7 +33,7 @@
       padding: 36px 18px 54px;
     }
     .frame {
-      width: min(1200px, 100%);
+      width: min(1700px, 100%);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 24px;
@@ -52,8 +52,8 @@
       opacity: 0.25;
       z-index: 0;
     }
-    .frame::before { background: #f36e9c; top: -110px; left: -70px; }
-    .frame::after { background: #6ef3c5; bottom: -140px; right: -120px; }
+    .frame::before { background: #7bd1ff; top: -110px; left: -70px; }
+    .frame::after { background: #f3c76e; bottom: -140px; right: -120px; }
     header {
       position: relative;
       z-index: 1;
@@ -78,7 +78,7 @@
       height: 9px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(243, 110, 156, 0.18);
+      box-shadow: 0 0 0 6px rgba(123, 209, 255, 0.18);
     }
     h1 { margin: 0; font-size: clamp(30px, 5vw, 40px); letter-spacing: -0.02em; }
     p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 700px; }
@@ -103,22 +103,21 @@
       transition: border-color 160ms ease, transform 160ms ease;
       font-weight: 600;
     }
-    .link-btn:hover { transform: translateY(-1px); border-color: rgba(243, 110, 156, 0.35); }
+    .link-btn:hover { transform: translateY(-1px); border-color: rgba(123, 209, 255, 0.35); }
     .gallery {
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
     .item {
       background: var(--panel);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius);
-      padding: 16px;
-      min-height: 200px;
+      padding: 20px;
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
     .item h2 { margin: 0; font-size: 18px; }
     .item small { color: var(--muted); }
@@ -128,12 +127,31 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.02);
-      min-height: 120px;
-      display: grid;
-      place-items: center;
+      display: block;
       color: var(--muted);
       font-size: 14px;
-      padding: 10px;
+      padding: 12px;
+    }
+    .embed img,
+    .embed svg,
+    .embed object,
+    .embed iframe {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    }
+    .notes {
+      display: grid;
+      gap: 8px;
+      margin-top: 6px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
     }
     footer {
       margin-top: 24px;
@@ -150,9 +168,9 @@
 <body>
   <div class="frame">
     <header>
-      <div class="label"><span class="dot"></span>Tableau</div>
-      <h1>Dashboard Tableau</h1>
-      <p>Entrega final en Tableau.</p>
+      <div class="label"><span class="dot"></span>TP Final</div>
+      <h1>Datos Personales</h1>
+      <p>Entrega final con datos procesados por un familiar con el ganado y visualización personalizada.</p>
     </header>
 
     <div class="toolbar">
@@ -161,13 +179,65 @@
 
     <section class="gallery">
       <article class="item">
-        <h2>TP final tablau visualization</h2>
-        <small>Embed</small>
-        <div class='tableauPlaceholder' id='viz1765493256095' style='position: relative'><noscript><a href='#'><img alt='Sheet 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;we&#47;weight_cow&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='weight_cow&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;we&#47;weight_cow&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1765493256095');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <h1>¿como fue aumentando de peso cada vaca en el tiempo?</h1>
+        <small>RAWGraphs · estática - grafico de peso/fecha/caravana</small>
+        <div class="embed">
+          <img src="viz%20(2).svg" alt="grafico de pesos bumpchart" />
+        </div>
+        <div class="notes">
+          <div>• Se retodo el formato de la fecha para que encaje con los formatos estandares.</div>
+          <div>• Con este grafico se puede diferenciar facilmente entre vacas y ver como varia el peso segun la fecha</div>
+          <div>• Se vio que muchas vacas subieron y bajaron de peso, no fue solo lineal en aumento (pueden ser vacas que tuvieron problemas o enfermedades).</div>
+          <div>• Se puede diferenciar rapidamente cual es la vaca que termino pesando menos y cual termino pesando mas (quizas para un analisis de genetica sirva).</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <h2>¿Qué patrones se ven en …?</h2>
+        <small>Flourish · interactivo</small>
+        <div class="embed">
+          Inserta el iframe de Flourish (`<iframe src="..."></iframe>`).
+        </div>
+        <div class="notes">
+          <div>• Describe la interacción clave (hover, filtro, animación).</div>
+          <div>• Toma de diseño: color, orden, anotaciones.</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <h2>¿Cómo evoluciona … en el tiempo?</h2>
+        <small>Datawrapper · interactivo</small>
+        <div class="embed">
+          Pega el iframe de Datawrapper (se adapta a ancho completo).
+        </div>
+        <div class="notes">
+          <div>• Fuente exacta y rango temporal.</div>
+          <div>• Insight concreto y/o anomalía marcada.</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <h2>¿Qué conclusiones finales puedo contar?</h2>
+        <small>Tableau · dashboard final</small>
+        <div class="embed">
+          Inserta el embed de Tableau (usa el script `viz_v1.js` como en otros tabs).
+        </div>
+        <div class="notes">
+          <div>• Cómo se conectan las visualizaciones anteriores.</div>
+          <div>• Dos hallazgos destacados para la presentación oral.</div>
+        </div>
       </article>
     </section>
 
-    <footer></footer>
+    <section class="notes" style="margin-top:16px;">
+      <div>Checklist rápido:</div>
+      <div>• Mínimo 4 visualizaciones (estáticas o interactivas) con título en forma de pregunta.</div>
+      <div>• Publicar en GitHub Pages y enlazar desde el index.</div>
+      <div>• Prototipo navegable al 2/12 (al menos una visual integrada).</div>
+      <div>• Entrega final y presentación de 10 min al 11/12.</div>
+    </section>
+
+    <footer>Autor: Franco Michetti · ITBA</footer>
   </div>
 </body>
 </html>
